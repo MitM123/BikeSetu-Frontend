@@ -8,7 +8,7 @@ const RecommendedBike = ({ image, name, price, topSpeed, range, chargingtime, on
                 <img
                     src={image}
                     alt="Electric Vehicle"
-                    className="rounded-t-lg object-contain"
+                    className="rounded-t-lg object-contain h-72"
                     width="400"
                     height="240"
                     style={{ aspectRatio: "400/240", objectFit: "cover" }}
