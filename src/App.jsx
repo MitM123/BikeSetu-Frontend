@@ -19,6 +19,7 @@ import FranchiseManager from './Pages/DashBoard/FranchiseManager';
 import Manufacturer from './Pages/DashBoard/Manufacturer';
 import YardManager from './Pages/DashBoard/YardManager';
 import AboutBike from './Pages/DashBoard/AboutBike';
+import AI from './Pages/AI';
 
 const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -54,6 +55,7 @@ const App = () => {
               <Route path="profile" element={<Profile />} />
               <Route path="reset-password/:token" element={<ResetPassword />} />
               <Route path="forgot-password" element={<ForgotPassword />} />
+              <Route path="ai-chat" element={<AI />} />
               <Route path='/' element={<Dashboard />}>
                 <Route path="addbike" element={<AddBike />} />
                 <Route path='aboutbike' element={<AboutBike />} />
