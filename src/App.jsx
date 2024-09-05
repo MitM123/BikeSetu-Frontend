@@ -20,6 +20,7 @@ import TrackManufacturing from './Pages/DashBoard/TrackManufacturing';
 import YardManager from './Pages/DashBoard/YardTracking';
 import AboutBike from './Pages/DashBoard/AboutBike';
 import YardTracking from './Pages/DashBoard/YardTracking';
+import AI from './Pages/AI';
 
 const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -55,6 +56,7 @@ const App = () => {
               <Route path="profile" element={<Profile />} />
               <Route path="reset-password/:token" element={<ResetPassword />} />
               <Route path="forgot-password" element={<ForgotPassword />} />
+              <Route path="ai-chat" element={<AI />} />
               <Route path='/' element={<Dashboard />}>
                 <Route path="addbike" element={<AddBike />} />
                 <Route path="track-manufacturing" element={<TrackManufacturing />} />

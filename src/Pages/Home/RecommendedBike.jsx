@@ -1,15 +1,14 @@
-import React from "react"
 import { Button } from "../../UIs/shadcn-ui/button"
 import TVS from '../../assets/TVS.jpg'
 
-const RecommendedBike = () => {
+const RecommendedBike = ({ image, name, price, topSpeed, range, chargingtime, onclick }) => {
     return (
-        <div className="w-[25%] bg-[#F0FFF4] rounded-lg shadow-lg">
+        <div className=" bg-[#F0FFF4] rounded-lg shadow-lg" onClick={onclick}>
             <div className="relative">
                 <img
-                    src={TVS}
+                    src={image}
                     alt="Electric Vehicle"
-                    className="rounded-t-lg object-cover w-full h-60"
+                    className="rounded-t-lg object-contain"
                     width="400"
                     height="240"
                     style={{ aspectRatio: "400/240", objectFit: "cover" }}
@@ -22,21 +21,21 @@ const RecommendedBike = () => {
             <div className="p-4 space-y-4 font-lexendDeca">
                 <div>
                     <div className="flex justify-between items-center">
-                        <h3 className="text-xl font-bold text-[#065F46]">Tesla Model 3</h3>
-                        <p className="text-[#1d6c56] font-medium">Price: $49,990</p>
+                        <h3 className="text-xl font-bold text-[#065F46]">{name}</h3>
+                        <p className="text-[#1d6c56] font-medium">Price: {price}</p>
                     </div>
-                    <p className="text-muted-foreground text-sm mt-1">Range: 310 miles | Charging Time: 30 mins</p>
+                    <p className="text-muted-foreground text-sm mt-1">Range: {range} | Charging Time: 30 mins</p>
                 </div>
                 <div className="flex items-center justify-between">
                     <Button className="bg-[#065F46] w-28 text-white hover:bg-[#064E3B] focus:ring-[#065F46]">Buy Now</Button>
                     <div className="flex items-center gap-2">
                         <div className="flex items-center gap-1">
                             <GaugeIcon className="w-4 h-4 text-[#065F46]" />
-                            <span className="text-[#065F46] text-sm  font-medium">162 mph</span>
+                            <span className="text-[#065F46] text-sm  font-medium">{topSpeed} mph</span>
                         </div>
                         <div className="flex items-center gap-1">
                             <GaugeIcon className="w-4 h-4 text-[#065F46]" />
-                            <span className="text-[#065F46] text-sm  font-medium">3.1 sec</span>
+                            <span className="text-[#065F46] text-sm  font-medium">{chargingtime}hr</span>
                         </div>
                     </div>
                 </div>
