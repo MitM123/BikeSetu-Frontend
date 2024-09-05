@@ -9,16 +9,23 @@ import VerifyEmail from './Pages/VerifyEmail';
 import Global from './Utils/Global';
 import { Profile } from './Pages/Profile';
 import { Loader } from './Components/UserLayout/Loader';
-import {ForgotPassword} from './Pages/ForgetPassword/index'
+import { ForgotPassword } from './Pages/ForgetPassword/index'
 import ResetPassword from './Pages/ResetPassword/index'
 import '@mantine/core/styles.css';
 import { MantineProvider } from '@mantine/core';
+import Dashboard from './Pages/DashBoard/DashboardLayout';
+import AddBike from './Pages/DashBoard/AddBike';
+import FranchiseManager from './Pages/DashBoard/FranchiseManager';
+import Manufacturer from './Pages/DashBoard/Manufacturer';
+import YardManager from './Pages/DashBoard/YardManager';
+import AboutBike from './Pages/DashBoard/AboutBike';
+import AI from './Pages/AI';
 
 const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     async function fetchUser() {
-      setTimeout(async() => {
+      setTimeout(async () => {
         try {
           const user = await Global.getUser();
           Global.user = user;
@@ -38,22 +45,30 @@ const App = () => {
     <MantineProvider>
       {
         isLoaded ?
-        <Routes>
-          <Route path="/" element={<UserLayout />}>
-            <Route path="" element={<Home />} />
-            <Route path="verify/:token" element={<VerifyEmail/>} />
-            <Route path="about" element={<h1>About</h1>} />
-            <Route path="services" element={<h1>Services</h1>} />
-            <Route path="contact" element={<h1>Contact</h1>} />
-            <Route path="profile" element={<Profile/>} />
-            <Route path="reset-password/:token" element={<ResetPassword/>} />
-            <Route path="forgot-password" element={<ForgotPassword/>} />
-          </Route>
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-        :
-        <Loader/>
+          <Routes>
+            <Route path="/" element={<UserLayout />}>
+              <Route path="" element={<Home />} />
+              <Route path="verify/:token" element={<VerifyEmail />} />
+              <Route path="about" element={<h1>About</h1>} />
+              <Route path="services" element={<h1>Services</h1>} />
+              <Route path="contact" element={<h1>Contact</h1>} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="reset-password/:token" element={<ResetPassword />} />
+              <Route path="forgot-password" element={<ForgotPassword />} />
+              <Route path="ai-chat" element={<AI />} />
+              <Route path='/' element={<Dashboard />}>
+                <Route path="addbike" element={<AddBike />} />
+                <Route path='aboutbike' element={<AboutBike />} />
+                <Route path="yardmanager" element={<YardManager />} />
+                <Route path="manufacturer" element={<Manufacturer />} />
+                <Route path="FranchiseManager" element={<FranchiseManager />} />
+              </Route>
+            </Route>
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+          :
+          <Loader />
       }
     </MantineProvider>
   );

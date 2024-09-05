@@ -22,6 +22,16 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        'poppins': ['Poppins'],
+        'dm-sans': ['DM Sans', 'sans-serif'],
+        'merriweather-sans': ['Merriweather Sans', 'sans-serif'],
+        'shippori-antique': ['Shippori Antique', 'serif'],
+        'lexendDeca': ['Lexend Deca'],
+        'montserrat': ['Montserrat'],
+        'jost': ['Jost'],
+        'outfit': ['Outfit'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -99,7 +109,7 @@ function addVariablesForColors({ addBase, theme }) {
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
- 
+
   addBase({
     ":root": newVars,
   });

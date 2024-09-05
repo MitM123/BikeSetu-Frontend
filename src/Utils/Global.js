@@ -65,6 +65,6 @@ export default class Global {
     static handleError(err) {
         // console.error('API Error:', err);
         console.error('API Error data:', err?.response?.data);
-        throw new Error(err?.response?.data?.errors[0]?.message || 'Something went wrong');
+        throw new Error(err?.response?.data?.message || err?.response?.data?.errors[0]?.message || 'Something went wrong');
     }
 }

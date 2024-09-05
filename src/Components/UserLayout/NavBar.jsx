@@ -10,7 +10,7 @@ export default function NavBar() {
     return (
         <>
             <header>
-                <nav className="inset-x-0 top-0 z-50 bg-white shadow-sm dark:bg-gray-950/90">
+                <nav className="inset-x-0 top-0 z-50 bg-white shadow-sm dark:bg-gray-950/90 border-0">
                     <div className="w-full max-w-7xl mx-auto px-4">
                         <div className="flex justify-between h-14 items-center">
                             <div className="flex items-center md:hidden">
@@ -21,32 +21,38 @@ export default function NavBar() {
                             </div>
                             <div className="flex-1 flex justify-center md:justify-start">
                                 <Link to="/" className="flex items-center ml-4 md:ml-0">
-                                    <MountainIcon className="h-6 w-6" />
+                                    <h1 className="text-3xl font-bold text-green-600 font-montserrat">BikeSetu</h1>
                                 </Link>
                             </div>
-                            <nav className={`hidden md:flex flex-1 justify-center lg:justify-start lg:mr-14`}>
-                                <div className="flex gap-4">
+                            <nav className={`hidden md:flex flex-1 font-dm-sans justify-center lg:justify-start lg:mr-14`}>
+                                <div className="flex gap-14">
                                     <Link
-                                        to="#"
-                                        className="font-medium p-2.5 flex items-center text-lg transition-colors hover:underline"
+                                        to=""
+                                        className="font-medium flex items-center transition-colors "
                                     >
                                         Home
                                     </Link>
+                                    {/* <Link
+                                        to="ai-chat"
+                                        className="font-medium flex items-center transition-colors "
+                                    >
+                                        AI Assistance
+                                    </Link> */}
                                     <Link
-                                        to="#"
-                                        className="font-medium p-2.5 flex items-center text-lg transition-colors hover:underline"
+                                        to="about"
+                                        className="font-medium flex items-center transition-colors "
                                     >
                                         About
                                     </Link>
                                     <Link
-                                        to="#"
-                                        className="font-medium p-2.5 flex items-center text-lg transition-colors hover:underline"
+                                        to="services"
+                                        className="font-medium flex items-center transition-colors "
                                     >
                                         Services
                                     </Link>
                                     <Link
-                                        to="#"
-                                        className="font-medium p-2.5 flex items-center text-lg transition-colors hover:underline"
+                                        to="contact"
+                                        className="font-medium  flex items-center  transition-colors "
                                     >
                                         Contact
                                     </Link>
@@ -62,7 +68,7 @@ export default function NavBar() {
                                         } />
                                     ) : (
                                         <Link to="/login">
-                                            <Button size="sm">Login</Button>
+                                            <Button className="bg-[#065F46] w-24 text-white hover:bg-[#064E3B] font-lexendDeca focus:ring-[#065F46]">Login</Button>
                                         </Link>
                                     )
                                 }
@@ -76,6 +82,13 @@ export default function NavBar() {
                                     onClick={() => setIsOpen(false)}
                                 >
                                     Home
+                                </Link>
+                                <Link
+                                    to="#"
+                                    className="font-medium flex items-center text-lg transition-colors hover:underline"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    AI Assistance
                                 </Link>
                                 <Link
                                     to="#"
