@@ -60,6 +60,7 @@ const App = () => {
               <Route path='/' element={<Dashboard />}>
                 <Route path="manufacturer" element={<AddBike />} />
                 <Route path="yard-tracking" element={<YardTracking />} />
+                <Route path='track-manufacturing' element={<TrackManufacturing />} />
                 <Route path='aboutbike' element={<AboutBike />} />
                 <Route path="franchisee-tracking" element={<FranchiseManager />} />
               </Route>

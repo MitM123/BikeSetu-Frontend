@@ -73,7 +73,7 @@ const AddBike = () => {
                 <div>
                     <h1 className='text-2xl font-lexendDeca w-full flex'>Bikes</h1>
                 </div>
-                <div className='w-full grid gap-14 p-4 custom-scrollbar grid-cols-3 h-[64vh] overflow-y-scroll'>
+                <div className={`w-full grid gap-14 p-4 ${bikes && bikes.length > 0 && "custom-scrollbar"} grid-cols-3 h-[64vh] overflow-y-scroll`}>
                     {bikes.map((bike) => (
                         <div key={bike.id} className="bg-[#F0FFF4] rounded-lg shadow-lg">
                             <div className="relative">

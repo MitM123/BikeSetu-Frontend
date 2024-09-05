@@ -172,7 +172,7 @@ const TrackManufacturing = () => {
                 <TableCell>
                   <span className={`font-semibold p-2 rounded-lg ${getStatusColor(bike.status)}`}>
                     {map[bike.status]}
-                  </span>
+                </span>
                 </TableCell>
                 <TableCell>{new Date(bike.createdAt).toLocaleDateString()}</TableCell>
                 <TableCell>
