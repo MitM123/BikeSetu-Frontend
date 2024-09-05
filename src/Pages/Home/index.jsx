@@ -68,7 +68,7 @@ const Home = () => {
 
   return (
     <div className={`min-h-screen`}>
-      <div className={`container mx-auto px-4 ${isModalOpen ? 'blur-sm' : ''}`}>
+      <div className={`container mx-auto px-4 ${isModalOpen ? 'blur-md' : ''}`}>
         <h1 className="text-3xl font-bold mb-4">Recommended Bikes</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {bikesData.map(data => (

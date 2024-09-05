@@ -58,12 +58,10 @@ const App = () => {
               <Route path="forgot-password" element={<ForgotPassword />} />
               <Route path="ai-chat" element={<AI />} />
               <Route path='/' element={<Dashboard />}>
-                <Route path="addbike" element={<AddBike />} />
-                <Route path="track-manufacturing" element={<TrackManufacturing />} />
+                <Route path="manufacturer" element={<AddBike />} />
                 <Route path="yard-tracking" element={<YardTracking />} />
                 <Route path='aboutbike' element={<AboutBike />} />
-                <Route path="yardmanager" element={<YardManager />} />
-                <Route path="franchisemanager" element={<FranchiseManager />} />
+                <Route path="franchisee-tracking" element={<FranchiseManager />} />
               </Route>
             </Route>
             <Route path="/signup" element={<SignUp />} />

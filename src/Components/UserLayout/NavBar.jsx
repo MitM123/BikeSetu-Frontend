@@ -25,21 +25,20 @@ export default function NavBar() {
                                     <h1 className="text-3xl font-bold text-green-600 font-montserrat">BikeSetu</h1>
                                 </Link>
                             </div>
-                            <nav className={`hidden md:flex flex-1 font-dm-sans justify-center lg:justify-start lg:mr-14`}>
-                                <div className="flex gap-14">
+                            <nav className={`hidden md:flex flex-1 w-full font-dm-sans justify-center lg:justify-start lg:mr-14`}>
+                                <div className="flex justify-between w-full">
                                     <Link
                                         to=""
                                         className="font-medium flex items-center transition-colors "
-
                                     >
                                         Home
                                     </Link>
-                                    {/* <Link
+                                    <Link
                                         to="ai-chat"
                                         className="font-medium flex items-center transition-colors "
                                     >
-                                        AI Assistance
-                                    </Link> */}
+                                        AI Assistant
+                                    </Link>
                                     <Link
                                         to="about"
                                         className="font-medium flex items-center transition-colors "

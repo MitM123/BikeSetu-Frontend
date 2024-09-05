@@ -26,7 +26,14 @@ export function ProfileMenu({ trigger }) {
     };
 
     const handleDashboardClick = () => {
-        navigate('/addbike');
+        let page;
+        if(Global.user.role === 'MANUFACTURER')
+            page = '/manufacturer';
+        else if(Global.user.role === 'YARD_MANAGER')
+            page = '/yard-tracking';
+        else if(Global.user.role === 'FRANCHISEE_MANAGER')
+            page = '/franchisee-tracking';
+        navigate(page);
     }
     const handleProfileClick = () => {
         navigate('/profile');

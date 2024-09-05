@@ -1,22 +1,25 @@
 import React from "react"
 import { Link, Outlet } from "react-router-dom"
 import { RiEBikeLine } from "react-icons/ri";
+import Global from "../../Utils/Global";
 
 export default function Component() {
   return (
-    <div className="flex flex-row w-full h-[90vh] ">
-      <div className="inset-y-0 h-full left-0 z-10 flex  w-[20%] flex-col rounded-r-md bg-[#f0fdf4] border-[1.5px]  border-green-600 ">
-        <div className="flex-1 overflow-auto py-4">
-          <nav className="space-y-2 px-4 font-lexendDeca">
-            <div className="text-xs font-medium text-[#65a30d] font-dm-sans">New</div>
-            <Link
-              to="/addbike"
-              className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-[#d1fae5] hover:text-[#065f46]"
-            >
-              <RiEBikeLine className="h-5 w-5" />
-              Add Bike
-            </Link>
-            {/* <Link
+    <div className={`${Global.user.role === "MANUFACTURER" ? "flex" : null}  w-[100vw] h-[90vh] `}>
+      {
+        Global.user.role === 'MANUFACTURER' ? (
+          <div className="inset-y-0 h-full left-0 z-10 flex  w-[20%] flex-col rounded-r-md bg-[#f0fdf4] border-[1.5px]  border-green-600 ">
+            <div className="flex-1 overflow-auto py-4">
+              <nav className="space-y-2 px-4 font-lexendDeca">
+                <div className="text-xs font-medium text-[#65a30d] font-dm-sans">New</div>
+                <Link
+                  to="/manufacture"
+                  className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-[#d1fae5] hover:text-[#065f46]"
+                >
+                  <RiEBikeLine className="h-5 w-5" />
+                  Add Bike
+                </Link>
+                {/* <Link
               to="/aboutbike"
               className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-[#d1fae5] hover:text-[#065f46]"
             >
@@ -55,10 +58,12 @@ export default function Component() {
               <MailIcon className="h-5 w-5" />
               Franchise Manager
             </Link> */}
-          </nav>
-        </div>
-      </div>
-      <div className="w-[80%]">
+              </nav>
+            </div>
+          </div>
+        ) : null
+      }
+      <div className={`${Global.user.role === 'MANUFACTURER' ? 'w-[80%]' : 'w-[100%]'}}`}>
         <Outlet />
       </div>
     </div>

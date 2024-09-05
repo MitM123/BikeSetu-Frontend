@@ -116,7 +116,7 @@ const TrackYardManager = () => {
   }
 
   return (
-    <div className="container mx-auto p-4 font-dm-sans">
+    <div className="container mx-auto  p-4 font-dm-sans">
       <h1 className="text-2xl font-bold mb-4">Yard Manager - Bike Tracking</h1>
 
       <div className="mb-4">
