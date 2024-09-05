@@ -35,6 +35,7 @@ export function LoginForm() {
         email: email.value,
         password: password.value
       });
+      localStorage.setItem("token", res.token);
       Global.user = res.user;
       Global.token = res.token;
       navigate("/");

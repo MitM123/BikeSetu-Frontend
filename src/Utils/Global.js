@@ -56,14 +56,20 @@ export default class Global {
     }
 
     static getHeaders(isFormData = false) {
+        const token = localStorage.getItem('token'); // Get token from localStorage
         const headers = {
             'Content-Type': isFormData ? 'multipart/form-data' : 'application/json',
         };
+
+        if (token) {
+            headers['Authorization'] = `Bearer ${token}`; // Append token to Authorization header
+        }
+
         return headers;
     }
 
     static handleError(err) {
-        // console.error('API Error:', err);
+        // Log the error details
         console.error('API Error data:', err?.response?.data);
         throw new Error(err?.response?.data?.message || err?.response?.data?.errors[0]?.message || 'Something went wrong');
     }

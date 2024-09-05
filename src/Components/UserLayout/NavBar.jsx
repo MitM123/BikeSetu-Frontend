@@ -10,7 +10,7 @@ export default function NavBar() {
     return (
         <>
             <header>
-                <nav className="inset-x-0 top-0 z-50 bg-white shadow-sm dark:bg-gray-950/90 border-b-[1.5px] border-green-600">
+                <nav className="inset-x-0 top-0 z-50 bg-white shadow-sm dark:bg-gray-950/90 ">
                     <div className="w-full max-w-7xl mx-auto px-4">
                         <div className="flex justify-between h-14 items-center">
                             <div className="flex items-center md:hidden">
@@ -28,25 +28,25 @@ export default function NavBar() {
                                 <div className="flex gap-4">
                                     <Link
                                         to="#"
-                                        className="font-medium p-2.5 flex items-center text-lg transition-colors hover:underline"
+                                        className="font-medium p-2.5 flex items-center text-md transition-colors hover:underline"
                                     >
                                         Home
                                     </Link>
                                     <Link
                                         to="#"
-                                        className="font-medium p-2.5 flex items-center text-lg transition-colors hover:underline"
+                                        className="font-medium p-2.5 flex items-center text-md transition-colors hover:underline"
                                     >
                                         About
                                     </Link>
                                     <Link
                                         to="#"
-                                        className="font-medium p-2.5 flex items-center text-lg transition-colors hover:underline"
+                                        className="font-medium p-2.5 flex items-center text-md transition-colors hover:underline"
                                     >
                                         Services
                                     </Link>
                                     <Link
                                         to="#"
-                                        className="font-medium p-2.5 flex items-center text-lg transition-colors hover:underline"
+                                        className="font-medium p-2.5 flex items-center text-md transition-colors hover:underline"
                                     >
                                         Contact
                                     </Link>
