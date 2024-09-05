@@ -25,6 +25,9 @@ export function ProfileMenu({ trigger }) {
         }
     };
 
+    const handleDashboardClick = () => {
+        navigate('/addbike');
+    }
     const handleProfileClick = () => {
         navigate('/profile');
     };
@@ -38,6 +41,10 @@ export function ProfileMenu({ trigger }) {
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
+                    <DropdownMenuItem onSelect={handleDashboardClick}>
+                        <User className="mr-2 h-4 w-4" />
+                        <span>DashBoard</span>
+                    </DropdownMenuItem>
                     <DropdownMenuItem onSelect={handleProfileClick}>
                         <User className="mr-2 h-4 w-4" />
                         <span>Profile</span>

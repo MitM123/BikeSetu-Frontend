@@ -62,7 +62,7 @@ export function SignupForm() {
   const handleGoogleButton = async () => {
     setIsLoading(true); // Set loading state to true during HTTP request
     try {
-      window.location.href = `${import.meta.env.VITE_BACKEND_SERVER_URL}/auth/google/admin`;
+      window.location.href = `${import.meta.env.VITE_BACKEND_SERVER_URL}/auth/google`;
     } catch (err) {
       console.error(err);
       // Handle error, show error message, etc.
