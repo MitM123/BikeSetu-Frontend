@@ -22,7 +22,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import Global from '../../Utils/Global'
 import './AddBike.css'
 
-const allowedStatuses = ['MANUFACTURING', 'MANUFACTURED', 'IN_TRANSIT_TO_YARD']
+const allowedStatuses = ['MANUFACTURING', 'MANUFACTURED']
 const map = {
   'MANUFACTURING': 'Manufacturing',
   'MANUFACTURED': 'Manufactured',
@@ -75,13 +75,21 @@ const TrackManufacturing = () => {
   const nextStatus = (currentStatus) => {
     switch (currentStatus) {
       case 'MANUFACTURING':
-        return 'MANUFACTURED'
+        return 'MANUFACTURED';
       case 'MANUFACTURED':
-        return 'IN_TRANSIT_TO_YARD'
+        return 'IN_TRANSIT_TO_YARD';
       case 'IN_TRANSIT_TO_YARD':
-        return 'DELIVERED_TO_CUSTOMER'
+        return 'AT_BIKESETU_YARD';
+      case 'AT_BIKESETU_YARD':
+        return 'IN_TRANSIT_TO_FRANCHISEE';
+      case 'IN_TRANSIT_TO_FRANCHISEE':
+        return 'AT_FRANCHISEE';
+      case 'AT_FRANCHISEE':
+        return 'DELIVERED_TO_CUSTOMER';
+      case 'DELIVERED_TO_CUSTOMER':
+        return 'DELIVERED_TO_CUSTOMER';
       default:
-        return 'MANUFACTURING'
+        return 'MANUFACTURING';
     }
   }
 
@@ -182,7 +190,7 @@ const TrackManufacturing = () => {
                     </Button>
                   ) : (
                     <Button disabled>
-                      In Transit to Yard
+                      {map[nextStatus(bike.status)]}
                     </Button>
                   )
                   }

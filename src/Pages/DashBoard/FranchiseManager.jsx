@@ -22,6 +22,17 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import Global from '../../Utils/Global'
 import './AddBike.css'
 
+const allowedStatuses = ['IN_TRANSIT_TO_FRANCHISEE', 'AT_FRANCHISEE']
+const map = {
+    'MANUFACTURING': 'Manufacturing',
+    'MANUFACTURED': 'Manufactured',
+    'IN_TRANSIT_TO_YARD': 'In transit to Yard',
+    'AT_BIKESETU_YARD': 'At Yard',
+    'IN_TRANSIT_TO_FRANCHISEE': 'In transit to Franchisee',
+    'AT_FRANCHISEE': 'At Franchisee',
+    'DELIVERED_TO_CUSTOMER': 'Delivered to Customer',
+}
+
 const FranchiseManager = () => {
     const [bikes, setBikes] = useState([])
     const [isAlertOpen, setIsAlertOpen] = useState(false)
@@ -62,12 +73,22 @@ const FranchiseManager = () => {
 
     const nextStatus = (currentStatus) => {
         switch (currentStatus) {
+            case 'MANUFACTURING':
+                return 'MANUFACTURED';
+            case 'MANUFACTURED':
+                return 'IN_TRANSIT_TO_YARD';
+            case 'IN_TRANSIT_TO_YARD':
+                return 'AT_BIKESETU_YARD';
+            case 'AT_BIKESETU_YARD':
+                return 'IN_TRANSIT_TO_FRANCHISEE';
             case 'IN_TRANSIT_TO_FRANCHISEE':
-                return 'AT_FRANCHISEE'
+                return 'AT_FRANCHISEE';
             case 'AT_FRANCHISEE':
-                return 'DELIVERED_TO_CUSTOMER'
+                return 'DELIVERED_TO_CUSTOMER';
+            case 'DELIVERED_TO_CUSTOMER':
+                return 'DELIVERED_TO_CUSTOMER';
             default:
-                return currentStatus
+                return 'MANUFACTURING';
         }
     }
 
@@ -158,15 +179,16 @@ const FranchiseManager = () => {
                                 </TableCell>
                                 <TableCell>{new Date(bike.createdAt).toLocaleDateString()}</TableCell>
                                 <TableCell>
-                                    {bike.status !== 'DELIVERED_TO_CUSTOMER' ? (
+                                    {allowedStatuses.includes(bike.status) ? (
                                         <Button onClick={() => handleStatusChange(bike)}>
-                                            Update Status
+                                            {map[nextStatus(bike.status)]}
                                         </Button>
                                     ) : (
                                         <Button disabled>
-                                            Delivered
+                                            {map[nextStatus(bike.status)]}
                                         </Button>
-                                    )}
+                                    )
+                                    }
                                 </TableCell>
                             </TableRow>
                         ))}
@@ -179,7 +201,7 @@ const FranchiseManager = () => {
                     <AlertDialogHeader>
                         <AlertDialogTitle>Confirm Status Change</AlertDialogTitle>
                         <AlertDialogDescription>
-                            Are you sure you want to update the status of {selectedBike?.modal?.name} to {nextStatus(selectedBike?.status)}?
+                            Are you sure you want to update the status of {selectedBike?.modal?.name} to the {nextStatus(selectedBike?.status)}?
                             Current status: {selectedBike?.status}
                         </AlertDialogDescription>
                     </AlertDialogHeader>

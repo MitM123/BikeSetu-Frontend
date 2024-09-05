@@ -22,6 +22,17 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import Global from '../../Utils/Global'
 import './AddBike.css'
 
+const allowedStatuses = ['IN_TRANSIT_TO_YARD', 'AT_BIKESETU_YARD']
+const map = {
+  'MANUFACTURING': 'Manufacturing',
+  'MANUFACTURED': 'Manufactured',
+  'IN_TRANSIT_TO_YARD': 'In transit to Yard',
+  'AT_BIKESETU_YARD': 'At Yard',
+  'IN_TRANSIT_TO_FRANCHISEE': 'In transit to Franchisee',
+  'AT_FRANCHISEE': 'At Franchisee',
+  'DELIVERED_TO_CUSTOMER': 'Delivered to Customer',
+}
+
 const TrackYardManager = () => {
   const [bikes, setBikes] = useState([])
   const [isAlertOpen, setIsAlertOpen] = useState(false)
@@ -62,12 +73,22 @@ const TrackYardManager = () => {
 
   const nextStatusForYard = (currentStatus) => {
     switch (currentStatus) {
+      case 'MANUFACTURING':
+        return 'MANUFACTURED';
+      case 'MANUFACTURED':
+        return 'IN_TRANSIT_TO_YARD';
       case 'IN_TRANSIT_TO_YARD':
-        return 'AT_BIKESETU_YARD'
+        return 'AT_BIKESETU_YARD';
       case 'AT_BIKESETU_YARD':
-        return 'IN_TRANSIT_TO_FRANCHISEE'
+        return 'IN_TRANSIT_TO_FRANCHISEE';
+      case 'IN_TRANSIT_TO_FRANCHISEE':
+        return 'AT_FRANCHISEE';
+      case 'AT_FRANCHISEE':
+        return 'DELIVERED_TO_CUSTOMER';
+      case 'DELIVERED_TO_CUSTOMER':
+        return 'DELIVERED_TO_CUSTOMER';
       default:
-        return currentStatus
+        return 'MANUFACTURING';
     }
   }
 
@@ -158,15 +179,16 @@ const TrackYardManager = () => {
                 </TableCell>
                 <TableCell>{new Date(bike.createdAt).toLocaleDateString()}</TableCell>
                 <TableCell>
-                  {bike.status !== 'IN_TRANSIT_TO_FRANCHISEE' ? (
+                  {allowedStatuses.includes(bike.status) ? (
                     <Button onClick={() => handleStatusChange(bike)}>
-                      Update Status
+                      {map[nextStatusForYard(bike.status)]}
                     </Button>
                   ) : (
                     <Button disabled>
-                      In Transit to Franchisee
+                      {map[nextStatusForYard(bike.status)]}
                     </Button>
-                  )}
+                  )
+                  }
                 </TableCell>
               </TableRow>
             ))}
