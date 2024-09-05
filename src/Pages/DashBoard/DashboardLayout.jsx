@@ -11,13 +11,20 @@ export default function Component() {
           <div className="inset-y-0 h-full left-0 z-10 flex  w-[20%] flex-col rounded-r-md bg-[#f0fdf4] border-[1.5px]  border-green-600 ">
             <div className="flex-1 overflow-auto py-4">
               <nav className="space-y-2 px-4 font-lexendDeca">
-                <div className="text-xs font-medium text-[#65a30d] font-dm-sans">New</div>
+                <div className="font-medium text-[#65a30d] w-full flex text-xl justify-center font-dm-sans">Dashboard</div>
                 <Link
                   to="/manufacture"
                   className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-[#d1fae5] hover:text-[#065f46]"
                 >
                   <RiEBikeLine className="h-5 w-5" />
                   Add Bike
+                </Link>
+                <Link
+                  to="/track-manufacturing"
+                  className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-[#d1fae5] hover:text-[#065f46]"
+                >
+                  <DollarSignIcon className="h-5 w-5" />
+                  Track Manufacturing
                 </Link>
                 {/* <Link
               to="/aboutbike"
@@ -34,13 +41,6 @@ export default function Component() {
             >
               <ZapIcon className="h-5 w-5" />
               Manufacturer
-            </Link>
-            <Link
-              to="/track-manufacturing"
-              className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-[#d1fae5] hover:text-[#065f46]"
-            >
-              <DollarSignIcon className="h-5 w-5" />
-              Track Manufacturing
             </Link>
             <Link
               to="/yard-tracking"

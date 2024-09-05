@@ -19,6 +19,7 @@ export function ProfileMenu({ trigger }) {
         try {
             await Global.httpPost('/auth/logout');
             Global.user = null; // Clear user data
+            localStorage.removeItem("token");
             window.location.href = '/'; // Redirect to home page
         } catch (err) {
             console.error("Logout failed:", err);
