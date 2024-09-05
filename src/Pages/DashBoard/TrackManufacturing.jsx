@@ -122,7 +122,7 @@ const TrackManufacturing = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-64">
+      <div className="flex justify-center  items-center h-full">
         <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
       </div>
     )
@@ -133,7 +133,7 @@ const TrackManufacturing = () => {
   }
 
   return (
-    <div className="container mx-auto p-4 font-dm-sans">
+    <div className="container mx-auto  p-4 font-dm-sans">
       <h1 className="text-2xl font-bold mb-4">E-Bike Manufacturing Tracking</h1>
 
       <div className="mb-4">

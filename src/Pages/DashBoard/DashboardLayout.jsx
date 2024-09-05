@@ -1,73 +1,46 @@
-import React from "react"
-import { Link, Outlet } from "react-router-dom"
+import React from "react";
+import { Link, Outlet } from "react-router-dom";
 import { RiEBikeLine } from "react-icons/ri";
 import Global from "../../Utils/Global";
 
 export default function Component() {
+  // Set sidebar width based on user role
+  const sidebarWidth = Global.user.role === "MANUFACTURER" ? "20%" : "0";
+  const contentWidth = Global.user.role === "MANUFACTURER" ? "80%" : "100%";
+
   return (
-    <div className={`${Global.user.role === "MANUFACTURER" ? "flex" : null}  w-[100vw] h-[90vh] `}>
-      {
-        Global.user.role === 'MANUFACTURER' ? (
-          <div className="inset-y-0 h-full left-0 z-10 flex  w-[20%] flex-col rounded-r-md bg-[#f0fdf4] border-[1.5px]  border-green-600 ">
-            <div className="flex-1 overflow-auto py-4">
-              <nav className="space-y-2 px-4 font-lexendDeca">
-                <div className="font-medium text-[#65a30d] w-full flex text-xl justify-center font-dm-sans">Dashboard</div>
-                <Link
-                  to="/manufacture"
-                  className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-[#d1fae5] hover:text-[#065f46]"
-                >
-                  <RiEBikeLine className="h-5 w-5" />
-                  Add Bike
-                </Link>
-                <Link
-                  to="/track-manufacturing"
-                  className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-[#d1fae5] hover:text-[#065f46]"
-                >
-                  <DollarSignIcon className="h-5 w-5" />
-                  Track Manufacturing
-                </Link>
-                {/* <Link
-              to="/aboutbike"
-              className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-[#d1fae5] hover:text-[#065f46]"
-            >
-              <InfoIcon className="h-5 w-5" />
-              About Bike
-            </Link>
-            <div className="text-xs font-medium text-[#65a30d] font-dm-sans">Bike Manufacturing</div>
-            <Link
-              to="/manufacturer"
-              className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-[#d1fae5] hover:text-[#065f46]"
-
-            >
-              <ZapIcon className="h-5 w-5" />
-              Manufacturer
-            </Link>
-            <Link
-              to="/yard-tracking"
-              className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-[#d1fae5] hover:text-[#065f46]"
-
-            >
-              <MailIcon className="h-5 w-5" />
-              Yard Tracking
-            </Link>
-            <Link
-              to="/franchisemanager"
-              className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-[#d1fae5] hover:text-[#065f46]"
-
-            >
-              <MailIcon className="h-5 w-5" />
-              Franchise Manager
-            </Link> */}
-              </nav>
-            </div>
+    <div className={`flex ${Global.user.role === "MANUFACTURER" ? "flex-row" : "flex-col"} w-[100vw] h-[90vh]`}>
+      {Global.user.role === "MANUFACTURER" && (
+        <div
+          style={{ width: sidebarWidth }}
+          className="h-full z-10 flex flex-col rounded-r-md bg-[#f0fdf4] border-[1.5px] border-green-600"
+        >
+          <div className="flex-1 overflow-auto py-4">
+            <nav className="space-y-2 px-4 font-lexendDeca">
+              <div className="font-medium text-[#65a30d] w-full flex text-xl justify-center font-dm-sans">Dashboard</div>
+              <Link
+                to="manufacturer"
+                className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-[#d1fae5] hover:text-[#065f46]"
+              >
+                <RiEBikeLine className="h-5 w-5" />
+                Add Bike
+              </Link>
+              <Link
+                to="/track-manufacturing"
+                className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-[#d1fae5] hover:text-[#065f46]"
+              >
+                <DollarSignIcon className="h-5 w-5" />
+                Track Manufacturing
+              </Link>
+            </nav>
           </div>
-        ) : null
-      }
-      <div className={`${Global.user.role === 'MANUFACTURER' ? 'w-[80%]' : 'w-[100%]'}}`}>
+        </div>
+      )}
+      <div style={{ width: contentWidth }}>
         <Outlet />
       </div>
     </div>
-  )
+  );
 }
 
 function DollarSignIcon(props) {
