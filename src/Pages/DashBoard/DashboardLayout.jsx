@@ -33,12 +33,19 @@ export default function Component() {
               Manufacturer
             </Link>
             <Link
-              to="/yardmanager"
+              to="/track-manufacturing"
+              className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-[#d1fae5] hover:text-[#065f46]"
+            >
+              <DollarSignIcon className="h-5 w-5" />
+              Track Manufacturing
+            </Link>
+            <Link
+              to="/yard-tracking"
               className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-[#d1fae5] hover:text-[#065f46]"
 
             >
-              <DollarSignIcon className="h-5 w-5" />
-              Yard Manager
+              <MailIcon className="h-5 w-5" />
+              Yard Tracking
             </Link>
             <Link
               to="/franchisemanager"

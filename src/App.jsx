@@ -16,9 +16,10 @@ import { MantineProvider } from '@mantine/core';
 import Dashboard from './Pages/DashBoard/DashboardLayout';
 import AddBike from './Pages/DashBoard/AddBike';
 import FranchiseManager from './Pages/DashBoard/FranchiseManager';
-import Manufacturer from './Pages/DashBoard/Manufacturer';
-import YardManager from './Pages/DashBoard/YardManager';
+import TrackManufacturing from './Pages/DashBoard/TrackManufacturing';
+import YardManager from './Pages/DashBoard/YardTracking';
 import AboutBike from './Pages/DashBoard/AboutBike';
+import YardTracking from './Pages/DashBoard/YardTracking';
 import AI from './Pages/AI';
 
 const App = () => {
@@ -58,10 +59,11 @@ const App = () => {
               <Route path="ai-chat" element={<AI />} />
               <Route path='/' element={<Dashboard />}>
                 <Route path="addbike" element={<AddBike />} />
+                <Route path="track-manufacturing" element={<TrackManufacturing />} />
+                <Route path="yard-tracking" element={<YardTracking />} />
                 <Route path='aboutbike' element={<AboutBike />} />
                 <Route path="yardmanager" element={<YardManager />} />
-                <Route path="manufacturer" element={<Manufacturer />} />
-                <Route path="FranchiseManager" element={<FranchiseManager />} />
+                <Route path="franchisemanager" element={<FranchiseManager />} />
               </Route>
             </Route>
             <Route path="/signup" element={<SignUp />} />

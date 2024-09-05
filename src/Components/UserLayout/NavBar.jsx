@@ -10,6 +10,7 @@ export default function NavBar() {
     return (
         <>
             <header>
+
                 <nav className="inset-x-0 top-0 z-50 bg-white shadow-sm dark:bg-gray-950/90 border-0">
                     <div className="w-full max-w-7xl mx-auto px-4">
                         <div className="flex justify-between h-14 items-center">
@@ -29,6 +30,7 @@ export default function NavBar() {
                                     <Link
                                         to=""
                                         className="font-medium flex items-center transition-colors "
+
                                     >
                                         Home
                                     </Link>
@@ -45,12 +47,14 @@ export default function NavBar() {
                                         About
                                     </Link>
                                     <Link
+
                                         to="services"
                                         className="font-medium flex items-center transition-colors "
                                     >
                                         Services
                                     </Link>
                                     <Link
+
                                         to="contact"
                                         className="font-medium  flex items-center  transition-colors "
                                     >
